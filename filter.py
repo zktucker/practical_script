@@ -88,3 +88,6 @@ def calculate_homodimer(sequence):
 def calculate_hairpin(sequence):
     # Placeholder for actual hairpin calculation logic
     return 75.0, 0.0  # Example values, replace with actual calculation
+def calculate_dimer(sequence1, sequence2):
+    # Placeholder for actual dimer calculation logic
+    return 75.0, 0.0  # Example values, replace with actual calculation
