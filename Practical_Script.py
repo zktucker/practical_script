@@ -1,16 +1,13 @@
-# RUN EVERYTHING FROM LINES 1-868
 
 # Libraries
 import rpy2.robjects as robjects
 from rpy2.robjects import pandas2ri
 pandas2ri.activate() 
-
 # importing modules 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
 # Data processing
 import pandas as pd
 # dplyr is not directly available in Python, consider using pandas for similar functionality
@@ -18,40 +15,27 @@ import string # using the built-in 'string' library
 import re # using the built-in 're' library as an alternative to stringr
 # mosaic is not directly available in Python, you may need to look for equivalent packages
 import itertools # using itertools as an alternative to purrr
-
-
 # Graphing
 from plotnine import ggplot, aes, geom_line, theme_minimal # Using plotnine for ggplot2 in Python
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots # Use Plotly's subplot functionality instead of patchworklib
-
-
 # Bioinformatics
 from Bio import Entrez, SeqIO
 from pybiomart import Dataset # Using pybiomart as an alternative to biomaRt
 # import spgs # No direct equivalent in Python, explore alternatives
 import primer3
-
-
+#not used??????????
 # Deployment
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 
-# Source functions
-# import functions
-
-
-
 # Set options (no direct equivalent in Python, handle manually)
 np.set_printoptions(suppress=True)
-
-
-
 from Bio.Seq import Seq
-
+#definitely needed but it's not called, and I do not know when it should be
 def generate_reverse_primers(sequence, primer_length=20, shift=1):
     # Reverse complement the sequence
     reverse_sequence = str(Seq(sequence).reverse_complement())
@@ -67,37 +51,24 @@ def generate_reverse_primers(sequence, primer_length=20, shift=1):
         reverse_primers.append(primer)
 
     return reverse_primers
-
 from filter import calculate_tm, calculate_homodimer, calculate_hairpin, calculate_dimer
 import time
-
-
-
 import re
 from primer_candidates import extract_substrings, extract_substrings_far
 from primer_candidates import all_text_wrangling, all_text_wrangling_reverse
-
+#potentially not needed
 def get_list(i, j, nested_tables):
     k = " ".join(nested_tables[i][j])
     k = k.split(" ")
     return k
-
-
-
 from Practical_Script import extract_substrings
-
-
 from Bio.Seq import Seq
 import pandas as pd
 import numpy as np
 import re
 from itertools import groupby
-
 from primer_candidates import extract_substrings_far
-
-
-from primer_candidates import all_text_wrangling
-
+#potentially not needed
 def all_text_wrangling_reverse(snp_wrangled, start_distance, end_distance, center, far, shift):
     grouped_sequences = (
         snp_wrangled
@@ -124,19 +95,6 @@ def all_text_wrangling_reverse(snp_wrangled, start_distance, end_distance, cente
     grouped_sequences['direction'] = np.where(grouped_sequences['direction'], "RIGHT", "LEFT")
 
     return grouped_sequences
-
-
-
-
-
-
-
-
-
-
-
-
-
 # This will give us the primer candidates, but does not filter any out that will not work
 # This function will take in the primer and shift
 from pybiomart import Dataset
