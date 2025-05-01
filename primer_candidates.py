@@ -2,6 +2,10 @@ import pandas as pd
 import numpy as np
 from Bio.Seq import Seq
 import re
+import biopython
+from pybiomart import server
+import time
+import requests
 # This function will output the dataframe of the primer candidates
 # The function will take the primer and shift as input
 # The function will return the dataframe of the primer candidates
@@ -224,3 +228,6 @@ def get_weak1(x, type):
     else:
         x = x[:-3] + temp + x[-2:]
     return x
+
+get_primer_candidates("rs9462492, rs58318008, rs1421085, rs9939609, rs1121980", 100)
+# This will give us the primer candidates, but does not filter any out that will not work
